@@ -1,0 +1,16 @@
+.sorts {
+  height: 10vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.sort {
+  margin: 15px;
+  padding: 10px;
+  background-color: #dddc;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.sort span span{
+  font-family: fantasy;
+}

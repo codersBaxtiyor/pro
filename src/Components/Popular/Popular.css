@@ -1,0 +1,53 @@
+.popular-item-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin-top: 50px;
+  gap: 30px;
+}
+
+.popular-item-block .box-contaienr {
+  width: 300px;
+  border-radius: 5px;
+  background-color: #fff;
+  overflow: hidden;
+  margin: 10px;
+}
+.popular-item-block .box-contaienr img {
+  width: 100%;
+  height: 30vh;
+}
+
+.popular-item-block .box-contaienr .title {
+  padding: 5px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.popular-item-block .box-contaienr .title h2 {
+  font-size: 18px;
+}
+.popular-item-block .box-contaienr .title .description {
+  border: 1px solid #ccd;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 20px;
+}
+.popular-item-block .box-contaienr .title .description span:nth-child(1) {
+  font-weight: 600;
+  font-size: 18px;
+  color: rgb(172, 172, 172);
+}
+.popular-item-block .box-contaienr .title .description span:nth-child(1) span {
+  background-color: rgb(67, 85, 243);
+  color: #ddd;
+  padding: 3px;
+  border-radius: 30px;
+}
+.popular-item-block .box-contaienr .title .description b {
+  color: rgb(159, 220, 255);
+  font-size: 18px;
+  font-weight: 500;
+  padding: 3px;
+}
