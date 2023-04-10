@@ -1,0 +1,19 @@
+main {
+  width: 100%;
+  border: 1px solid #000;
+  margin: 0 auto;
+}
+.container {
+  width: 99%;
+  margin: 0 auto;
+  border: 1px solid #000;
+}
+main .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+main .container .block {
+  width: 80%;
+  border: 1px solid #000;
+}
