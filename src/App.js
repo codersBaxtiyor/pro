@@ -6,8 +6,8 @@ import Main from "./pages/Components/main/Main";
 const App = () => {
   return (
     <div className="App">
-      <SideBar />
       <Main />
+      <SideBar />
     </div>
   );
 };
