@@ -1,26 +1,40 @@
 import React from "react";
-const mainHeader = ({ query, setQuery, searchParams }) => {
-  const page = searchParams.get("page") || 0;
-  const res = query ? `/search/${query}/${page}` : "/new";
-  const newParams = (e) => {
-    const params = e.target.value;
-    setQuery(params);
+import { useState } from "react";
+const mainHeader = ({
+  query,
+  searchParams,
+  setSearchTitle,
+  setSearchParams,
+}) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const query = form.search.value;
+    const latest = searchParams.has("latest");
+
+    const param = {};
+
+    if (query.length) param.post = query;
+    setSearchParams(param);
   };
   return (
     <header>
       <div className="container">
         <div className="search-box">
-          <input
-            type="search"
-            id="search"
-            className="search-input"
-            placeholder="search lessons ..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <button className="search-btn" onClick={newParams}>
-            <i className="bx bx-search"></i>
-          </button>
+          <form autoComplete="off" onSubmit={handleSubmit}>
+            <input
+              type="search"
+              name="search"
+              id="search"
+              className="search-input"
+              placeholder="search lessons ..."
+              value={query}
+              onChange={(e) => setSearchTitle(e.target.value)}
+            />
+            <button className="search-btn">
+              <i className="bx bx-search"></i>
+            </button>
+          </form>
         </div>
       </div>
     </header>

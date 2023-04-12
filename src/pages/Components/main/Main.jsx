@@ -16,7 +16,15 @@ import Auth from "../../../setup/auth/auth";
 import MainHeader from "./mainHeader";
 const Main = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchTitle, setSearchTitle] = useState("");
   const [query, setQuery] = useState(searchParams.get("query"));
+  let startsForm;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const query = form.search.value;
+    searchParams({ post: query });
+  };
   return (
     <main>
       <div className="container">
@@ -24,14 +32,41 @@ const Main = () => {
           <MainHeader
             query={query}
             setQuery={setQuery}
+            searchTitle={searchTitle}
+            setSearchTitle={setSearchTitle}
             searchParams={searchParams}
+            setSearchParams={setSearchParams}
           />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
+            <Route
+              path="/home"
+              element={
+                <Home
+                  searchTitle={searchTitle}
+                  setSearchTitle={setSearchTitle}
+                  searchParams={searchParams}
+                  setSearchParams={setSearchParams}
+                  handleSubmit={handleSubmit}
+                  startsForm={startsForm}
+                />
+              }
+            />
             <Route path="/posts" element={<Comments />} />
             <Route path="/videos" element={<Videos />} />
-            <Route path="/lessons" element={<Lessons />} />
+            <Route
+              path="/lessons"
+              element={
+                <Lessons
+                  searchTitle={searchTitle}
+                  setSearchTitle={setSearchTitle}
+                  searchParams={searchParams}
+                  setSearchParams={setSearchParams}
+                  handleSubmit={handleSubmit}
+                  startsForm={startsForm}
+                />
+              }
+            />
             <Route path="/account" element={<Account />} />
             <Route path="/new-lessons" element={<NewLessons />} />
             <Route path="/new-group" element={<NewGroup />} />
